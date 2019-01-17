@@ -1,8 +1,13 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 import sys
-
 from gtts import gTTS
+
+# dunno what this is yet. somehow related to UTF-8 and Mac issues
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 # different microphones can return different level of signal
 rms_multiplyer = 1
@@ -41,3 +46,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
