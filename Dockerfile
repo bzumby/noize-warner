@@ -16,4 +16,6 @@ pip install virtualenv
 RUN mkdir ~/.soundmeter && \
     cp config ~/.soundmeter/config
 
+RUN pip install -r requirements.txt
+
 CMD ["/bin/bash"]
