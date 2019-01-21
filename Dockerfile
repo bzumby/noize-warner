@@ -19,4 +19,4 @@ RUN mkdir ~/.soundmeter && \
 
 RUN pip install -r requirements.txt
 
-CMD ["/bin/bash"]
+CMD ["/bin/bash", "./run.sh"]
