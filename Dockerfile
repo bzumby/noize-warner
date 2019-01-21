@@ -8,7 +8,8 @@ WORKDIR /app
 RUN apt-get update && \
 apt-get install -y \
 libasound-dev portaudio19-dev libportaudio2 \
-libportaudiocpp0 pulseaudio mplayer alsa-utils libpulse0 python-dev \
+libportaudiocpp0 pulseaudio mplayer alsa-utils \
+libpulse0 mpg123 python-dev \
 python python-pip && \
 pip install --upgrade setuptools && \
 pip install virtualenv
