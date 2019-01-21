@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucy-app-kube-dpl
+  labels:
+    app: lucy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lucy-app
+  template:
+    metadata:
+      labels:
+        app: lucy-app
+    spec:
+      containers:
+      - name: lucy-app
+        image: bzumby/lucy_kube
+        env:
+        - name: PULSE_SERVER
+          value: "tcp:172.18.214.34"
