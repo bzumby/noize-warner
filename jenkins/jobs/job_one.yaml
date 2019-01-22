@@ -1,0 +1,17 @@
+- job:
+    name: job_one
+    project-type: freestyle
+    defaults: global
+    description: 'Dont edit through WEEEB!'
+    scm:
+      - git:
+          url: https://github.com/bzumby/gitpractice.git
+          merge:
+            branch: master
+    triggers:
+      - pollscm:
+          cron: "* * * * *"
+          ignore-post-commit-hooks: True
+    builders:
+      - shell: echo "Wassup" && ls -l 
+
