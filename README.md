@@ -27,3 +27,63 @@ P.S.: If you have some free time, fix soundmeter behaviour ;)
 
 JFI: 
 Допустимые уровни шума http://www.acoustic.ua/directory/135
+
+--- from Yan
+
+1. Install paprefs
+2. Enable network access (UI) - reboot may be needed
+3. run 'pax11publish' and find out the port in 'Server' section
+
+4. Run container like this. IPADDRESS is the IP of your host machine. 
+Port is the one from  pax11publish output
+docker run -it --device=/dev/snd -e PULSE_SERVER=tcp:<IPADDRESS>:4713
+
+
+
+OR
+1. add this to /etc/pulse/default.pa on HOST
+
+ load-module module-native-protocol-tcp auth-ip-acl=172.17.0.1/24 auth-anonymous=1
+
+2. restart PulseAudio on HOST:
+pulseaudio -k && pulseaudio --start
+
+OR 
+
+1. On Host, create conf file in $HOME and include main default.pa there:
+
+Ubutnu:
+echo "
+.include /etc/pulse/default.pa
+
+load-module module-native-protocol-tcp auth-ip-acl=172.17.0.1/24 auth-anonymous=1
+" > ~/.config/pulse/default.pa
+
+IP is the LAN subnet for which you allow the access from 
+
+Mac:
+
+echo "
+.include /usr/local/etc/pulse/default.pa
+
+load-module module-native-protocol-tcp auth-ip-acl=172.17.0.1/24 auth-anonymous=1
+" > ~/.config/pulse/default.pa
+
+2. Run docker with this:
+
+docker run -it -e PULSE_SERVER=tcp:<IPADDRESS>
+
+## this seems to be odd
+
+docker run -it --device=/dev/snd -e PULSE_SERVER=tcp image <command>
+
+Only <IPADDRESS> (and NO port) is needed to run the sound correctly
+
+
+For Mac:
+Pre-requisites 
+1. Install pulseaudio:
+brew install pulseaudio
+2. start pulse audio with: pulseaudio -D
+
+It seems that it is necessary to run pulseaudio -D before each start of 'docker run'. At least on mac
