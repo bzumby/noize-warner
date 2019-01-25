@@ -19,4 +19,4 @@ spec:
         image: bzumby/lucy_kube
         env:
         - name: PULSE_SERVER
-          value: "tcp:192.168.1.137"
+          value: "tcp:<HOST_IP>"
