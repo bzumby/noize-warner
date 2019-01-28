@@ -87,3 +87,6 @@ brew install pulseaudio
 2. start pulse audio with: pulseaudio -D
 
 It seems that it is necessary to run pulseaudio -D before each start of 'docker run'. At least on mac
+
+---
+Dont forget to copy/paste Kubernetes config from $HOME/.kube to Jenkins user $HOME
