@@ -18,11 +18,11 @@ def get_message(rms):
     rms = int(rms)
     if rms < 800:
         return 'Потише!'
-    elif rms < 200:
-        return 'Нука Тише!!'
-    elif rms < 300:
+    elif rms < 1100:
+        return 'Тише!!'
+    elif rms < 1500:
         return 'Тише! Слишком громко!'
-    elif rms < 350:
+    elif rms < 2000:
         return 'Слишком громко! на 30 децибел потише!'
     else: # Very LOUD
         return 'Да Вы совсем мох у ели!'
@@ -46,4 +46,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

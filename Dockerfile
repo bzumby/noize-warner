@@ -11,8 +11,7 @@ libasound-dev portaudio19-dev libportaudio2 \
 libportaudiocpp0 pulseaudio mplayer alsa-utils \
 libpulse0 mpg123 python-dev \
 python python-pip && \
-pip install --upgrade setuptools && \
-pip install virtualenv
+pip install --upgrade setuptools
 
 RUN mkdir ~/.soundmeter && \
     cp config ~/.soundmeter/config
