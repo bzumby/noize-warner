@@ -17,9 +17,9 @@ language = 'ru'
 def get_message(rms):
     rms = int(rms)
     if rms < 800:
-        return 'Потише!'
+        return 'Эй Эй Потише!'
     elif rms < 200:
-        return 'Тише!!'
+        return 'Ну НУ Тише!!'
     elif rms < 300:
         return 'Тише! Слишком громко!'
     elif rms < 350:
