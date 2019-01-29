@@ -1,0 +1,7 @@
+- job:
+    name: deploy_lucy
+    project-type: pipeline
+    defaults: global
+    description: 'Kubernetes Deploy Lucy'
+    dsl:
+      !include-raw: deploy_pipe_lucy.groovy

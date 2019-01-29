@@ -1,11 +1,11 @@
 - job:
-    name: hello_app_py_pipe
+    name: build_lucy
     project-type: pipeline
     defaults: global
-    description: 'Dont edit through WEEEB!'
+    description: 'Fetch, Build, Push Lucy'
     triggers:
       - pollscm:
           cron: "*/30 * * * *"
           ignore-post-commit-hooks: True
     dsl:
-      !include-raw: pipeline_lucy.groovy
+      !include-raw: build_pipe_lucy.groovy

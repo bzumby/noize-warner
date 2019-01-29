@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: lucy-app
-        image: bzumby/lucy_kube
+        image: bzumby/lucy_app-ctr
         env:
-        - name: PULSE_SERVER
-          value: "tcp:CHANGETHIS"
+        - name: PULSE_SERVER # to send audio stream
+          value: "tcp:172.18.214.149"
+          # value: "tcp:<HOST_IP>"
