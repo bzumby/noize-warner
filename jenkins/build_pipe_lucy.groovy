@@ -1,19 +1,20 @@
 node ('master'){
 		deleteDir() // clean ws
-		stage ('GIT Fetch & PreMerge') {
+		stage ('GIT fetch changes') {
 			checkout ([
 			$class: 'GitSCM',
-				branches: [[name: 'lucy_origin/kube_test']],
+				branches: [[name: 'lucy_origin/lucy_prod']],
 				extensions: [
 					[$class: 'PruneStaleBranch'],
-					[$class: 'CleanCheckout'],
-					[$class: 'PreBuildMerge',
-						options: [
-							fastForwardMode: 'FF_ONLY',
-							mergeRemote: 'lucy_origin',
-							mergeTarget: 'master'
-						]	
-					]
+					[$class: 'CleanCheckout'] //,
+					// looks like we dont need this for PROD
+					// [$class: 'PreBuildMerge',
+					// 	options: [
+					// 		fastForwardMode: 'FF_ONLY',
+					// 		mergeRemote: 'lucy_origin',
+					// 		mergeTarget: 'kube_prod'
+					// 	]	
+					// ]
 				],
 				userRemoteConfigs: [
 				    [name: 'lucy_origin',
@@ -30,4 +31,3 @@ node ('master'){
             	image.push('latest') }
 		}
 	}
-
