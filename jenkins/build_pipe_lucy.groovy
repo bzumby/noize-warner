@@ -3,7 +3,7 @@ node ('master'){
 		stage ('GIT fetch changes') {
 			checkout ([
 			$class: 'GitSCM',
-				branches: [[name: 'lucy_origin/lucy_prod']],
+				branches: [[name: 'lucy_origin/lucy_sb']],
 				extensions: [
 					[$class: 'PruneStaleBranch'],
 					[$class: 'CleanCheckout'] //,
@@ -25,7 +25,7 @@ node ('master'){
 		}
 
 		stage ('Docker Build') {
-			def image = docker.build("bzumby/lucy_app:${env.BUILD_ID}")
+			def image = docker.build("bzumby/lucy_app_sb:${env.BUILD_ID}")
 				withDockerRegistry([credentialsId: 'docker_hub_bz', url: 'https://index.docker.io/v1/']) {
             	image.push("v1.${env.BUILD_ID}")
             	image.push('latest') }
