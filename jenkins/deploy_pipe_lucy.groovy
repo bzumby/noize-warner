@@ -11,7 +11,7 @@ node ('master') {
 	stage ('Re-Deploy Lucy') {
 	    def buildNum = Jenkins.instance.getItem("${BUILD_JOB}").lastSuccessfulBuild.number
 	    ws("$JENKINS_HOME/workspace/${BUILD_JOB}") {
-	    sh "kubectl set image deployment.v1.apps/lucy-app-kube-dpl lucy-app-ctr=bzumby/lucy_app:v1.${buildNum}"
+	    sh "kubectl set image deployment.v1.apps/lucy-app-kube-dpl lucy-app-ctr=bzumby/lucy_app_sb:v1.${buildNum}"
 		// sh 'pulseaudio -D' // not sure yet.
 	}
 
