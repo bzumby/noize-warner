@@ -6,7 +6,7 @@ while true; do
 		echo "Waiting..." \
 		&& echo "Will continue in 15 minutes"\
 		&& sleep 900 \
-		&& rm stop.talking
+		&& rm suspend.execution
 	else
 		# run noize warner checks
 		soundmeter --profile main --trigger +700 7 \
