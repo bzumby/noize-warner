@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-LABEL maintainer="valera"
+LABEL maintainer="bzumby"
 
 COPY . /app
 WORKDIR /app
