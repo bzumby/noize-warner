@@ -19,5 +19,5 @@ spec:
         image: bzumby/lucy_app_sb
         env:
         - name: PULSE_SERVER # to send audio stream
-          value: "tcp:172.18.214.17" # lucy machine IP
+          value: "tcp:172.18.214.123" # lucy machine IP
           # value: "tcp:<HOST_IP>"
