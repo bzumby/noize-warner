@@ -5,7 +5,7 @@ while true; do
 		# stop and wait 15 minutes
 		echo "Waiting..." \
 		&& echo "Will continue in 15 minutes"\
-		&& sleep 900 \
+		&& sleep 1800 \
 		&& rm suspend.execution
 	else
 		# run noize warner checks
