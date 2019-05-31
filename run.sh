@@ -4,7 +4,7 @@ while true; do
 	if [ -f suspend.execution ]; then
 		# stop and wait 15 minutes
 		echo "Waiting..." \
-		&& echo "Will continue in 15 minutes"\
+		&& echo "Will continue in ~30 minutes"\
 		&& sleep 1800 \
 		&& rm suspend.execution
 	else
